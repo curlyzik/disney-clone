@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+
+@layer base {
+  body {
+    @apply bg-[#040714] text-[#f9f9f9] font-body;
+  }
+}
+
+@layer components {
+  .main {
+    @apply relative min-h-screen after:bg-home 
+    after:bg-center after:absolute after:bg-cover 
+    after:bg-no-repeat after:bg-fixed after:inset-0 after:z-[-9999];
+  }
+
+  .header-link {
+    @apply flex items-center space-x-2 cursor-pointer;
+  }
+
+  .span {
+    @apply relative uppercase text-sm font-medium before:bg-[#f9f9f9] 
+    before:rounded-bl before:-bottom-1.5 before:h-0.5
+    before:inset-x-0 before:absolute before:transform 
+    before:origin-left before:scale-x-0 before:transition-all 
+    before:duration-200 group-hover:before:scale-x-100;
+  }
+
+  .section-brands {
+    @apply flex flex-col sm:flex-row 
+      justify-center items-center mt-10 
+      gap-6 px-8 max-w-[1400px] mx-auto;
+  }
+
+  .brand {
+    @apply flex relative w-52 h-32 sm:w-60 sm:h-36 
+    border-[3px] border-[#f9f9f9] border-opacity-10
+    rounded-lg cursor-pointer shadow-xl overflow-hidden 
+    hover:border-opacity-80 hover:shadow-2xl transform
+    hover:scale-105 transition duration-300;
+  }
+
+  .movie-thumbnail {
+    @apply flex min-w-[250px] min-h-[170px] md:min-w-[330px]
+    md:min-h-[210px] rounded-lg overflow-hidden shadow-xl cursor-pointer
+    border-[3px] border-[#f9f9f9] border-opacity-10 hover:border-opacity-80
+    hover:shadow-2xl transform hover:scale-105 transition duration-300;
+  }
+}
