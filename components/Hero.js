@@ -33,7 +33,7 @@ const Hero = () => {
             tracking-wide font-extrabold py-4 px-6 w-full
             rounded hover:bg-[#0485ee] transition duration-200"
           >
-            Get all there
+            Get all here
           </button>
           <p className="text-xs text-center">
             Slobber’s all part of the job. Meet the leading pooch and his
