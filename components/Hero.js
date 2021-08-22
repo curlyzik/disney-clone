@@ -10,9 +10,10 @@ const Hero = () => {
       </Head>
       <div className="relative min-h-[calc(100vh-74px)]">
         <Image
-          src="/images/hero-background.jpg"
+          src="/images/image-bg.jpg"
           layout="fill"
           objectFit="cover"
+          className="opacity-40"
         />
       </div>
 
