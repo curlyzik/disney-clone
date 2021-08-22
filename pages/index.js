@@ -18,7 +18,7 @@ export default function Home({
     <div className="">
       <Head>
         <title>Disney+</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/favicon.svg" />
       </Head>
       <Header />
 
