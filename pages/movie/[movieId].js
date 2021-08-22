@@ -1,16 +1,26 @@
 import { getSession, useSession } from "next-auth/client";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
 import Image from "next/image";
-import { PlusIcon } from "@heroicons/react/solid";
+import { PlusIcon, XIcon } from "@heroicons/react/solid";
+import ReactPlayer from "react-player";
+import { useRouter } from "next/dist/client/router";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, session }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
-  const session = useSession();
-
+  const router = useRouter();
   const [showPlayer, setShowPlayer] = useState(false);
+  const index = movie.videos.results.findIndex(
+    (element) => element.type === "Trailer"
+  );
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/");
+    }
+  }, []);
   return (
     <div>
       <Head>
@@ -30,7 +40,6 @@ const Movie = ({ movie }) => {
               }
               layout="fill"
               objectFit="cover"
-              className="opacity-70"
             />
           </div>
           <div
@@ -106,6 +115,37 @@ const Movie = ({ movie }) => {
           {showPlayer && (
             <div className="absolute inset-0 bg-black opacity-10 h-full w-full z-50" />
           )}
+
+          <div
+            className={`absolute top-3 inset-x-[7%] md:inset-x-[13%]
+                rounded overflow-hidden transition duration-1000
+                ${showPlayer ? "opacity-100 z-50" : "opacity-0"}
+              `}
+          >
+            <div
+              className="flex items-center justify-between bg-black
+              text-[#f9f9f9] p-3.5"
+            >
+              <span className="font-semibold"> Play Trailer</span>
+              <div
+                className="cursor-pointer w-8 h-8 justify-center items-center
+                rounded-lg opacity-40 hover:opacity-75 hover:bg-[#0f0f0f]"
+                onClick={() => setShowPlayer(false)}
+              >
+                <XIcon className="h-5 " />
+              </div>
+            </div>
+            <div className="relative pt-[56.25%]">
+              <ReactPlayer
+                url={`https://wwww.youtube.com/watch?v=${movie.videos?.results[index]?.key}`}
+                width="100%"
+                height="100%"
+                style={{ position: "absolute", top: "0", left: "0" }}
+                // controls={true}
+                playing={showPlayer}
+              />
+            </div>
+          </div>
         </section>
       )}
     </div>

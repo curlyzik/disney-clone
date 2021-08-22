@@ -1,4 +1,4 @@
-import { getSession, useSession } from "next-auth/client";
+import { getSession } from "next-auth/client";
 import Head from "next/head";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -12,31 +12,30 @@ export default function Home({
   popularShows,
   topRatedMovies,
   topRatedShows,
+  session,
 }) {
-  const [session] = useSession();
-
   return (
     <div className="">
       <Head>
-        <title>Dizny+</title>
+        <title>Disney+</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
 
       {!session ? (
-      <Hero />
+        <Hero />
       ) : (
-      <main className="main">
-        <Slider />
-        <Brands />
-        <MoviesCollection results={popularMovies} title="Popular Movies" />
+        <main className="main">
+          <Slider />
+          <Brands />
+          <MoviesCollection results={popularMovies} title="Popular Movies" />
 
-        <ShowCollection results={popularShows} title="Popular Shows" />
+          <ShowCollection results={popularShows} title="Popular Shows" />
 
-        <MoviesCollection results={topRatedMovies} title="Top Rated Movies" />
+          <MoviesCollection results={topRatedMovies} title="Top Rated Movies" />
 
-        <ShowCollection results={topRatedShows} title="Top Rated Shows" />
-      </main>
+          <ShowCollection results={topRatedShows} title="Top Rated Shows" />
+        </main>
       )}
     </div>
   );
