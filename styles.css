@@ -3,7 +3,7 @@
 
 @layer base {
   body {
-    @apply bg-[#040714] text-[#f9f9f9] font-body scrollbar-hide;
+    @apply text-[#f9f9f9] font-body scrollbar-hide;
   }
 }
 
@@ -12,7 +12,7 @@
     @apply relative min-h-screen after:bg-home 
     after:bg-center after:absolute after:bg-cover 
     after:bg-no-repeat after:bg-fixed after:inset-0 after:z-[-9999];
-  }
+  } 
 
   .header-link {
     @apply flex items-center space-x-2 cursor-pointer;

@@ -13,8 +13,9 @@ const Hero = () => {
           src="/images/image-bg.jpg"
           layout="fill"
           objectFit="cover"
-          className="opacity-40"
         />
+
+        <div className="absolute inset-0 bg-black opacity-60"></div>
       </div>
 
       <div className="flex justify-center items-center">
