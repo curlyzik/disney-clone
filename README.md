@@ -18,6 +18,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 You can run this project locally
+Check the [.env.example file](./.env.example) to update your environment variable as neccessary
 
 1. Clone the repo
    ```sh
